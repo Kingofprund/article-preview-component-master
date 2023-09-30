@@ -1,0 +1,201 @@
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+    2. Remove default margin
+  */
+* {
+  margin: 0;
+}
+/*
+    Typographic tweaks!
+    3. Add accessible line-height
+    4. Improve text rendering
+  */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+    5. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+    6. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+    7. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+    8. Create a root stacking context
+  */
+#root,
+#__next {
+  isolation: isolate;
+}
+
+:root {
+  --bkgrd: hsl(210, 46%, 95%);
+  --accent: hsl(217, 19%, 35%);
+  --title: hsl(214, 17%, 51%);
+  --card-body: hsl(212, 23%, 69%);
+  --ff: "Manrope";
+  --fw-h: 700;
+}
+
+body {
+  background-color: var(--card-body);
+  font-family: var(--ff);
+  display: grid;
+  place-content: center;
+}
+.container-hero {
+  max-width: 23em;
+  max-height: 50em;
+  border-radius: 1em;
+  background-color: white;
+  overflow: hidden;
+  margin-top: 2em;
+}
+.container {
+  padding: 1em;
+}
+h1 {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: var(--accent);
+}
+h2 {
+  font-size: 1em;
+  color: var(--accent);
+}
+p {
+  font-size: 0.96em;
+  color: var(--title);
+  margin-bottom: 2em;
+}
+
+.profile {
+  display: flex;
+  max-height: 3em;
+  justify-content: space-between;
+  z-index: 1;
+}
+.profile-image img {
+  border-radius: 50%;
+  width: 3em;
+  aspect-ratio: 1;
+}
+button {
+  background-color: var(--bkgrd);
+  border-radius: 50%;
+  border-style: none;
+  background-image: url("images/icon-share.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1.5em;
+  color: transparent;
+  z-index: 10;
+}
+
+.hidden {
+  display: none;
+}
+@media only screen and (min-width: 40em) {
+  .container-hero {
+    min-width: 50em;
+    display: flex;
+  }
+  .image-header img {
+    height: 100%;
+    min-width: 20em;
+  }
+  .pop-up {
+    position: absolute;
+    background-color: var(--accent);
+    height: 3em;
+    border-radius: 1em;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transform: translate(290px, -75px);
+  }
+  .padding {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 10em;
+    margin-inline: 1em;
+  }
+  .image-adds {
+    height: 1em;
+  }
+  .little-arrow {
+    width: 0;
+    height: 0;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--accent);
+    transform: translate(85px, -40px);
+  }
+  .shareText {
+    text-transform: uppercase;
+    transform: translateY(-3px);
+  }
+}
+@media only screen and (max-width: 40em) {
+  .pop-up {
+    position: absolute;
+    z-index: 2;
+    background-color: var(--accent);
+    width: 23em;
+    transform: translate(-32px, -20px);
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    overflow: hidden;
+    height: 6.5em;
+    text-align: center;
+  }
+  .padding {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 15em;
+    margin-inline: 1em;
+  }
+  .image-adds {
+    width: 3em;
+    scale: 0.6;
+  }
+  .shareText {
+    text-transform: uppercase;
+    transform: translateY(15px);
+    letter-spacing: 0.4em;
+  }
+}
